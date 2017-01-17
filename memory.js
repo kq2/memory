@@ -7,11 +7,11 @@ window.onload = function () {
     }
 
     function randomColor() {
-        var r = randrange(0, 256);
-        var g = randrange(0, 256);
-        var b = randrange(0, 256);
+        var r = Math.floor((randrange(0, 256) + 255) / 2);
+        var g = Math.floor((randrange(0, 256) + 255) / 2);
+        var b = Math.floor((randrange(0, 256) + 255) / 2);
         var a = 1;
-        return 'rgba('+r+','+g+','+b+','+a+')'
+        return "rgba("+r+","+g+","+b+","+a+")"
     }
 
     function randomShape(shapeArray) {
