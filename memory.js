@@ -3,7 +3,7 @@ window.onload = function () {
 
     // helper functions
     function randrange(min, max) {
-        return min + Math.floor(Math.random() * max)
+        return min + Math.floor(Math.random() * max);
     }
 
     function randomColor() {
@@ -11,7 +11,7 @@ window.onload = function () {
         var g = Math.floor((randrange(0, 256) + 255) / 2);
         var b = Math.floor((randrange(0, 256) + 255) / 2);
         var a = 1;
-        return "rgba("+r+","+g+","+b+","+a+")"
+        return 'rgba('+r+','+g+','+b+','+a+')';
     }
 
     function randomShape(shapeArray) {
@@ -39,7 +39,7 @@ window.onload = function () {
         grid += '\n        <svg viewbox="0 0 100 100" class="back" fill="'+color+'"><use xlink:href="#'+shape+'1" /></svg>';
         grid += '\n    </div>';
         grid += '\n</div>';
-        return grid
+        return grid;
     }
 
     function innerSVGShape(target) {
@@ -109,10 +109,19 @@ window.onload = function () {
         flipTile(tile, dirct*180);
         checkMatch();
         match.push(tile);
+        addTime();
         if (--count === 0) newGame();
     }
 
     // game functions
+    function addTime() {
+        if (match.length === 2) {
+            if (getColor(match[0]) === getColor(match[1])) {
+                incrementTime(2);
+            }
+        }
+    }
+
     function checkMatch() {
         if (match.length === 2) {
             var tile1 = match.pop();
@@ -121,8 +130,6 @@ window.onload = function () {
                 flipTile(tile1, getAngle(tile1)<0?180:-180);
                 flipTile(tile2, getAngle(tile2)<0?180:-180);
                 count += 2;
-            } else {
-                incrementTime(2);
             }
         }
     }
@@ -136,7 +143,7 @@ window.onload = function () {
         div.appendChild(bonus);
         window.setTimeout(function() {
             div.removeChild(bonus);
-        }, 1000)
+        }, 1000);
     }
 
     function getLevelConfig(_level) {
@@ -214,14 +221,14 @@ window.onload = function () {
             window.setTimeout(function(){
                 initGame();
                 newTimer();
-            }, 1000)
+            }, 1000);
         }
     }
 
     function endGame() {
         endTimer();
         inPlay = false;
-        setText('timer', "Game Over")
+        setText('timer', "Game Over");
     }
 
     // start game

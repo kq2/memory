@@ -97,8 +97,8 @@
 	-moz-transform: translate(1em, 0);
 	-webkit-transform: translate(1em, 0);
 
-	animation: rise 1s;
-	-webkit-animation: rise 1s;
+	animation: rise 1.5s;
+	-webkit-animation: rise 1.5s;
 }
 
 @keyframes rise {
